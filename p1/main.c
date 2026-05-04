@@ -2,11 +2,11 @@
 
 int main(void) {
     int N;
-    int found;
+    bool found;
 
     scanf("%d", &N);
 
-    found = 0;
+    found = false;
 
     for (int a = 1; a * 900 <= N - 750 - 200; a++) {
         for (int b = 2; a * 900 + b * 750 <= N - 200; b += 2) {
@@ -14,14 +14,14 @@ int main(void) {
                 if (a * 900 + b * 750 + c * 200 == N) {
                     if (c < a || c < b) {
                         printf("%d %d %d\n", a, b, c);
-                        found = 1;
+                        found = true;
                     }
                 }
             }
         }
     }
 
-    if (found == 0) {
+    if (!found) {
         printf("none\n");
     }
 
